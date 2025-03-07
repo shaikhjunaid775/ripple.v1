@@ -1,0 +1,87 @@
+/* src/components/IndexPage.css */
+.index-container {
+  text-align: center;
+  margin-top: 50px;
+}
+
+.index-btn {
+  padding: 10px 20px;
+  font-size: 16px;
+  margin: 10px;
+  cursor: pointer;
+}
+
+.animation_main_div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: calc(50% - 50px);
+  left: calc(50% - 70px);
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  -webkit-box-shadow: inset 0px -19px 20px 0px #0f49ada2,
+    0px 7px 12px 0px #015eff91, -1px 2px 12px 0px #84a3e500;
+  -moz-box-shadow: inset 0px -19px 20px 0px #0f49ada2,
+    0px 7px 12px 0px #015eff91, -1px 2px 12px 0px #84a3e500;
+  box-shadow: inset 0px -19px 20px 0px #0f49ada2, 0px 7px 12px 0px #015eff91,
+    -1px 2px 12px 0px #84a3e500;
+}
+.animation_main_div:after {
+  content: "";
+  position: absolute;
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+  -webkit-box-shadow: inset 0px -19px 20px 0px #0f49ada2,
+    0px 7px 12px 0px #015eff91, -1px 2px 12px 0px #84a3e500;
+  -moz-box-shadow: inset 0px -19px 20px 0px #0f49ada2,
+    0px 7px 12px 0px #015eff91, -1px 2px 12px 0px #84a3e500;
+  box-shadow: inset 0px -19px 20px 0px #0f49ada2, 0px 7px 12px 0px #015eff91,
+    -1px 2px 12px 0px #84a3e500;
+}
+.animation_main_div .symbolContainer {
+  -webkit-box-shadow: 0px 6px 9px 3px #1861df;
+  -moz-box-shadow: 0px 6px 9px 3px #1861df;
+  box-shadow: 0px 6px 9px 3px #1861df;
+}
+.animation_main_div .symbolContainer::after {
+  content: "";
+  position: absolute;
+  width: 85px;
+  height: 85px;
+  border-radius: 50%;
+  -webkit-box-shadow: 0px 7px 12px 0px #ffffff;
+  -moz-box-shadow: 0px 7px 12px 0px #ffffff;
+  box-shadow: 0px 7px 12px 0px #ffffff;
+}
+.symbolContainer::before {
+  content: "";
+  position: absolute;
+  width: 85px;
+  height: 85px;
+  border-radius: 50%;
+  -webkit-box-shadow: inset 0px -10px 11px 0px #29487e;
+  -moz-box-shadow: inset 0px -10px 11px 0px #29487e;
+  box-shadow: inset 0px -10px 11px 0px #29487e;
+}
+
+.authentic button:first-child {
+  -webkit-box-shadow: 0px 2px 10px 0px #405a87;
+  -moz-box-shadow: 0px 2px 10px 0px #405a87;
+  box-shadow: 0px 2px 10px 0px #405a87;
+}
+
+.reflect {
+  width: 275px;
+  height: 151px;
+  position: fixed;
+  bottom: -140px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 9999px;
+  background: #ffffff;
+  box-shadow: 0px -17px 10px #ffffff;
+  filter: blur(20px);
+}

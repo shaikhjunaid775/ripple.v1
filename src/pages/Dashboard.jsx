@@ -13,8 +13,8 @@ function Dashboard() {
             <p className="text-gray-300/70 text-xs">Let's manage your budget</p>
           </div>
           <div className="flex gap-4">
-            <div class=" p-0.5 rounded-full  -ml-2 bg-gradient-to-b from-[#739cee] via-transparent to-transparent">
-              <div className="w-9 h-9 rounded-full bg-[#142d68]   flex items-center justify-center text-xs ">
+            <div class=" p-[1.3px] rounded-full  -ml-2 bg-gradient-to-b from-[#739cee] via-transparent to-transparent">
+              <div className="w-9 h-9 rounded-full bg-[#002171]   flex items-center justify-center text-xs ">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   className="w-5"
@@ -89,7 +89,7 @@ function Dashboard() {
                 </svg>
               </div>
             </div>
-            <div class=" p-0.5 rounded-full  -ml-2 bg-gradient-to-b from-[#739cee] via-transparent to-transparent">
+            <div class=" p-[1.3px] rounded-full  -ml-2 bg-gradient-to-b from-[#739cee] via-transparent to-transparent">
               <div className="w-9 h-9 rounded-full bg-gradient-to-t from-blueLight from-[30%] to-blueDark  flex items-center justify-center text-xs ">
                 <img
                   class="w-10 h-10 rounded-sm"
@@ -108,7 +108,7 @@ function Dashboard() {
             <h1 className="text-3xl">
               $12,840.<span className="text-[25px]">00</span>
             </h1>
-            <div class=" p-0.5 rounded-full  -ml-2 bg-gradient-to-b from-[#739cee] via-transparent to-transparent">
+            <div class="  p-[1.3px] rounded-full  -ml-2 bg-gradient-to-b from-[#739cee] via-transparent to-transparent">
               <div className="w-9 h-9 rounded-full bg-[#142d68]   flex items-center justify-center text-xs ">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -173,7 +173,7 @@ function Dashboard() {
               </span>
             </button>
           </div>
-          <div className=" shadow-2xl  shadow-cyan-500/50 mb-2 rounded-b-3xl rounded-t-none">
+          <div className=" shadow-2xl  shadow-cyan-500/50 mb-2 rounded-b-3xl rounded-t-none overflow-hidden">
             <div className="flex justify-between items-center px-5">
               <div>
                 <span className="text-xl">$3,670.00</span>

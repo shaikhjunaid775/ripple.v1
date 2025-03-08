@@ -2,7 +2,6 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import "./App.css";
 import Onboard from "./pages/Onboard";
 import Dashboard from "./pages/Dashboard";
-import Footer from "./component/Footer";
 
 function App() {
   return (
@@ -11,7 +10,7 @@ function App() {
         <Route path="/" element={<Onboard />} />
         <Route path="/dashboard" element={<Dashboard />} />
       </Routes>
-      <Footer />
+      
     </Router>
   );
 }

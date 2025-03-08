@@ -1,5 +1,6 @@
 import React from "react";
 import avatar from "../assets/image/avatar.png";
+import Footer from "../component/Footer";
 
 function Dashboard() {
   const percentFilled = 16; // Percentage filled
@@ -322,6 +323,7 @@ function Dashboard() {
           </div>
         </div>
       </div>
+      <Footer />
     </>
   );
 }

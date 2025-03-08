@@ -5,7 +5,7 @@ function Dashboard() {
   const percentFilled = 16; // Percentage filled
   return (
     <>
-      <div className="flex flex-col items-center justify-between h-screen bg-gradient-to-bl from-blueLight from-[-5%]  to-blueDark to-[40%]    text-white p-2 px-4">
+      <div className="flex flex-col items-center justify-between h-screen bg-gradient-to-bl from-blueLight from-[-5%]  to-blueDark to-[40%]    text-white p-2 px-4 pb-20">
         {/* Header */}
         <div className="flex justify-between items-center mb-3 w-full">
           <div>
@@ -185,8 +185,10 @@ function Dashboard() {
               </div>
             </div>
             <div class="relative ">
-              <div class="absolute -inset-1 rounded-t-lg rounded-b-none bg-gradient-to-r from-[#3aea69] via-[#7affff] to-[#0f51ff] opacity-75 blur"></div>
-              <div class="relative flex h-5 w-full items-center justify-center rounded-b-3xl rounded-t-none bg-gradient-to-r from-[#3aea69] via-[#7affff] to-[#0f51ff] text-slate-300"></div>
+              <div class="relative flex h-5 w-full items-center justify-center rounded-b-3xl rounded-t-none bg-gradient-to-r from-[#3aea69] via-[#7affff] to-[#0f51ff] text-slate-300">
+              <div class="absolute -inset-1 rounded-t-lg rounded-b-none bg-gradient-to-r from-[#3aea69] via-[#7affff] to-[#0f51ff] opacity-75 blur h-4 -top-2"></div>
+              </div>
+              
             </div>
           </div>
 
@@ -252,7 +254,7 @@ function Dashboard() {
                     transform: "scale(1.2)",
                     top: "-1px",
                     bottom: "-1px",
-                    left: "0",
+                    left: "0"
                   }}
                 ></div>
                 <div
@@ -291,7 +293,7 @@ function Dashboard() {
                     transform: "scale(1.2)",
                     top: "-1px",
                     bottom: "-1px",
-                    left: "0",
+                    left: "0"
                   }}
                 ></div>
 
@@ -318,38 +320,6 @@ function Dashboard() {
               </div>
             </div>
           </div>
-        </div>
-
-        {/* Bottom Navigation */}
-        <div className="flex justify-between pt-4 border-t border-gray-800">
-          <button className="flex flex-col items-center text-blue-500">
-            <span className="text-xs mt-1">Home</span>
-          </button>
-          <button className="flex flex-col items-center text-gray-500">
-            <span className="text-xs mt-1"></span>
-          </button>
-          <button className="flex flex-col items-center text-gray-500">
-            <div className="w-5 h-5 flex items-center justify-center">
-              <svg
-                viewBox="0 0 24 24"
-                width="20"
-                height="20"
-                stroke="currentColor"
-                fill="none"
-              >
-                <path
-                  d="M12 5v14M5 12h14"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-              </svg>
-            </div>
-            <span className="text-xs mt-1"></span>
-          </button>
-          <button className="flex flex-col items-center text-gray-500">
-            <span className="text-xs mt-1"></span>
-          </button>
         </div>
       </div>
     </>

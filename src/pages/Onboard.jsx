@@ -66,7 +66,7 @@ function Onboard() {
           </div>
 
           {/* Main Content */}
-          <div className="flex flex-col items-center text-center mb-24">
+          <div className="flex flex-col items-center text-center mb-8">
             <h1 className="text-[2.75rem] leading-none font-bold mb-2  bg-gradient-to-r from-[#6074ad] from-[-40px] via-white via-[30%] to-[#6074ad] to-[160%] text-transparent bg-clip-text">
               Take Control of
               <br />

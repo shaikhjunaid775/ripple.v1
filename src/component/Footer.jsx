@@ -55,15 +55,15 @@ function Footer() {
 
   return (
     <div className="flex items-center justify-center fixed bottom-0 w-full px-4 py-3">
-      <div className="flex items-center justify-between w-full pt-[1px] mx-auto my-4 max-w-sm rounded-2xl bg-gradient-to-tr from-blue-200 from-45% ">
+      <div className="flex items-center justify-between w-full pt-[1px] mx-auto my-4 max-w-sm rounded-2xl bg-gradient-to-tr from-blue-200 from-45% to-transparent ">
         <div className="w-full bg-black rounded-3xl">
           <div
-            className=" flex justify-around items-center w-full max-w-md h-16 px-2 rounded-2xl bg-blueLight backdrop-blur-md shadow-lg"
+            className=" flex justify-around items-center w-full max-w-md h-16 px-2 rounded-2xl bg-blueLight/50 backdrop-blur-md shadow-lg"
             style={{
               background:
-                "linear-gradient(to bottom, rgba(30,64,175,0.18), rgba(37,99,235,0.62), rgba(30,64,175,0.18))",
+                "linear-gradient(to bottom, rgba(30,64,175,0.18), rgba(37 99 235 / 51%), rgba(30,64,175,0.18))",
               boxShadow:
-                "0 4px 15px rgba(0, 0, 0, 0.3), inset 0 1px 1px #112a83"
+                "0 4px 15px rgba(0, 0, 0, 0.3), rgb(17 42 131 / 0%) 0px 1px 1px inset"
             }}
           >
             {navItems.map((item) => (

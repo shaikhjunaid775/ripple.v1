@@ -103,10 +103,10 @@ function Dashboard() {
 
         {/* Balance Section */}
         <div className=" mb-3 w-full">
-          <p className="text-gray-400 text-xs mb-1">Total balance</p>
+          <p className="text-gray-400 text-xs">Total balance</p>
           <div className="flex justify-between items-center">
             <h1 className="text-3xl">
-              $12,840.<span className="text-[25px]">00</span>
+              $12,840.<span className="text-[25px] opacity-30">00</span>
             </h1>
             <div class="  p-[1.3px] rounded-full  -ml-2 bg-gradient-to-b from-[#739cee] via-transparent to-transparent">
               <div className="w-9 h-9 rounded-full bg-[#142d68]   flex items-center justify-center text-xs ">

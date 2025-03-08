@@ -166,7 +166,7 @@ function Dashboard() {
               </div>
             </div>
             <button class="group relative flex  bg-[#00285b]  gap-2 rounded-xl px-2 py-2 text-sm font-medium shadow-[inset_0_-8px_10px_#8fdfff1f] transition-shadow duration-500 ease-out hover:shadow-[inset_0_-5px_10px_#8fdfff3f]">
-              <div class="absolute inset-0 block h-full w-full animate-gradient bg-gradient-to-r from-[#00285b]/50 via-white/60 to-[#00285b]/50 bg-[length:var(--bg-size)_100%] [border-radius:inherit] [mask:linear-gradient(#fff_0_0)_content-box,linear-gradient(#fff_0_0)] p-[1px] ![mask-composite:subtract]"></div>
+              <div class="absolute inset-0 block h-full w-full animate-gradient bg-gradient-to-br from-white/60 to-[#00285b]/50 bg-[length:var(--bg-size)_100%] [border-radius:inherit] [mask:linear-gradient(#fff_0_0)_content-box,linear-gradient(#fff_0_0)] p-[1px] ![mask-composite:subtract]"></div>
 
               <span class="inline animate-gradient whitespace-pre text-white text-center">
                 + New Card

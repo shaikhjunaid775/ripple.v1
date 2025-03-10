@@ -82,7 +82,7 @@ const WelcomeLetter = () => {
             Hi, {userData.username}
           </p>
           <p className="text-white text-xs leading-tight">
-            Welcome to FGFC! Your forex journey starts here. Harness the power
+            Welcome! Your forex journey starts here. Harness the power
             of technology and AI to navigate the dynamic markets with
             confidence. Let’s grow together and achieve your trading goals.
             Happy trading!

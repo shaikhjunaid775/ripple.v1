@@ -23,36 +23,30 @@ const Login = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
-    // Get stored user from localStorage
+  
     const storedUser = JSON.parse(localStorage.getItem("user"));
-
+  
     if (!storedUser) {
       toast.error("No registered user found. Please sign up first.");
       return;
     }
-
-    // Validate user credentials
+  
     if (email === storedUser.email && password === storedUser.password) {
       toast.success("Login successful!");
-
+  
       if (rememberMe) {
-        // Save user credentials for next login
-        localStorage.setItem(
-          "rememberedUser",
-          JSON.stringify({ email, password })
-        );
+        localStorage.setItem("rememberedUser", JSON.stringify({ email, password }));
       } else {
         localStorage.removeItem("rememberedUser");
       }
-
-      // Save user session (for authentication status)
-      localStorage.setItem("isAuthenticated", "true");
-      navigate("/dashboard"); // Redirect to dashboard after login
+  
+      localStorage.setItem("isAuthenticated", "true"); // Set authentication status
+      navigate("/dashboard");
     } else {
       toast.error("Invalid email or password!");
     }
   };
+  
 
   return (
     <>

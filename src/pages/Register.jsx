@@ -1,16 +1,18 @@
 import { Eye, EyeOff } from "lucide-react";
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import toast, { Toaster } from "react-hot-toast";
 
 const Register = () => {
   const [fullName, setFullName] = useState("");
+  const [username, setUsername] = useState(""); // Added username field
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [agreeTerms, setAgreeTerms] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+  const navigate = useNavigate();
 
   // Function to validate email format
   const isValidEmail = (email) => /\S+@\S+\.\S+/.test(email);
@@ -18,9 +20,13 @@ const Register = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // Validation Checks
-    if (!fullName || !email || !password || !confirmPassword) {
+    if (!fullName || !username || !email || !password || !confirmPassword) {
       toast.error("All fields are required!");
+      return;
+    }
+
+    if (username.includes(" ")) {
+      toast.error("Username should not contain spaces!");
       return;
     }
 
@@ -45,18 +51,12 @@ const Register = () => {
     }
 
     // Store user data in localStorage
-    const userData = { fullName, email, password };
+    const userData = { fullName, username, email, password };
     localStorage.setItem("user", JSON.stringify(userData));
+    localStorage.setItem("isAuthenticated", "true"); // Mark user as authenticated
 
-    // Success message
     toast.success("Account created successfully!");
-
-    // Clear form fields after submission
-    setFullName("");
-    setEmail("");
-    setPassword("");
-    setConfirmPassword("");
-    setAgreeTerms(false);
+    navigate("/welcomeLetter"); // Redirect to the welcome page
   };
 
   return (
@@ -102,6 +102,18 @@ const Register = () => {
               onChange={(e) => setFullName(e.target.value)}
               className="w-full px-4 py-2 bg-blue-900/40 backdrop-blur-md border border-white/10 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500/70 text-white shadow-lg"
               placeholder="Enter your full name"
+            />
+          </div>
+
+          {/* Username Field */}
+          <div>
+            <label className="block mb-2 text-sm font-medium text-blue-300">Username</label>
+            <input
+              type="text"
+              value={username}
+              onChange={(e) => setUsername(e.target.value)}
+              className="w-full px-4 py-2 bg-blue-900/40 backdrop-blur-md border border-white/10 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500/70 text-white shadow-lg"
+              placeholder="Enter your username"
             />
           </div>
 
@@ -163,26 +175,14 @@ const Register = () => {
             />
             <label className="block ml-2 text-sm text-blue-300">
               I agree to the{" "}
-              <a href="#" className="text-blue-400 hover:text-blue-300">
-                Terms of Service
-              </a>{" "}
-              and{" "}
-              <a href="#" className="text-blue-400 hover:text-blue-300">
-                Privacy Policy
-              </a>
+              <a href="#" className="text-blue-400 hover:text-blue-300">Terms of Service</a> and{" "}
+              <a href="#" className="text-blue-400 hover:text-blue-300">Privacy Policy</a>
             </label>
           </div>
 
           <button type="submit" className="w-full py-3 font-medium text-blue-900 transition-colors bg-white rounded-lg hover:bg-blue-100">
             Create Account
           </button>
-
-          <p className="text-sm text-blue-300 text-center">
-            Already have an account?{" "}
-            <Link to="/login" className="font-medium text-blue-400 hover:text-blue-300">
-              Log In
-            </Link>
-          </p>
         </form>
       </div>
     </div>

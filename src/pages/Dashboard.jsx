@@ -1,19 +1,38 @@
 import React from "react";
+import { useState, useEffect } from "react";
 import avatar from "../assets/image/avatar.png";
 import Footer from "../component/Footer";
+import { useNavigate } from "react-router-dom";
 
 function Dashboard() {
+  const navigate = useNavigate();
+  // Retrieve username and password from localStorage
+  const [userData, setUserData] = useState({ username: "", password: "" });
+
+  // Retrieve user data from localStorage
+  useEffect(() => {
+    const savedUser = localStorage.getItem("user");
+    if (savedUser) {
+      setUserData(JSON.parse(savedUser));
+    }
+  }, []);
   const percentFilled = 16; // Percentage filled
+
+  const handleLogout = () => {
+    localStorage.removeItem("isAuthenticated");
+    localStorage.removeItem("user"); // Remove user data
+    navigate("/login");
+  };
   return (
     <>
       <div className="flex flex-col items-center justify-between h-screen bg-gradient-to-bl from-blueLight from-[-5%]  to-blueDark to-[40%]    text-white p-2 px-4 pb-20">
         {/* Header */}
         <div className="flex justify-between items-center mb-3 w-full">
           <div>
-            <h2 className="text-white text-md">Hi Eaton!</h2>
+            <h2 className="text-white text-md">Hi {userData.username}!</h2>
             <p className="text-gray-300/70 text-xs">Let's manage your budget</p>
           </div>
-          <div className="flex gap-4">
+          <div className="flex gap-3">
             <div class=" p-[1.3px] rounded-full  -ml-2 bg-gradient-to-b from-[#739cee] via-transparent to-transparent">
               <div className="w-9 h-9 rounded-full bg-[#002171]   flex items-center justify-center text-xs ">
                 <svg
@@ -90,6 +109,7 @@ function Dashboard() {
                 </svg>
               </div>
             </div>
+
             <div class=" p-[1.3px] rounded-full  -ml-2 bg-gradient-to-b from-[#739cee] via-transparent to-transparent">
               <div className="w-9 h-9 rounded-full bg-gradient-to-t from-blueLight from-[30%] to-blueDark  flex items-center justify-center text-xs ">
                 <img
@@ -97,6 +117,24 @@ function Dashboard() {
                   src={avatar}
                   alt="Medium avatar"
                 />
+              </div>
+            </div>
+            <div onClick={handleLogout} class=" p-[1.3px] rounded-full  -ml-2 bg-gradient-to-b from-[#739cee] via-transparent to-transparent">
+              <div className="w-9 h-9 rounded-full bg-[#002171]   flex items-center justify-center text-xs ">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="w-5"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    fill="none"
+                    stroke="#fff"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M7 6a7.75 7.75 0 1 0 10 0m-5-2v8"
+                  ></path>
+                </svg>
               </div>
             </div>
           </div>
@@ -187,9 +225,8 @@ function Dashboard() {
             </div>
             <div class="relative ">
               <div class="relative flex h-5 w-full items-center justify-center rounded-b-3xl rounded-t-none bg-gradient-to-r from-[#3aea69] via-[#7affff] to-[#0f51ff] text-slate-300">
-              <div class="absolute -inset-1 rounded-t-lg rounded-b-none bg-gradient-to-r from-[#3aea69] via-[#7affff] to-[#0f51ff] opacity-75 blur h-4 -top-2"></div>
+                <div class="absolute -inset-1 rounded-t-lg rounded-b-none bg-gradient-to-r from-[#3aea69] via-[#7affff] to-[#0f51ff] opacity-75 blur h-4 -top-2"></div>
               </div>
-              
             </div>
           </div>
 

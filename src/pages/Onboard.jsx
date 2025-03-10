@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import avatar from "../assets/image/avatar.png";
 import "../assets/css/style.css";
+import { Link } from "react-router-dom";
 
 function Onboard() {
   return (
@@ -22,7 +23,6 @@ function Onboard() {
             <div className="w-6 h-6 bg-white rounded-full"></div>
             <span className="ml-2 font-semibold">Cashly</span>
           </div>
-          <button className="text-white text-sm">Skip</button>
         </motion.div>
 
         {/* User avatars */}
@@ -139,20 +139,24 @@ function Onboard() {
           initial={{ y: 50, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 1, delay: 0.7 }}
-          className="w-full space-y-3 authentic mb-3 z-10"
+          className="w-full space-y-3 authentic mb-3 z-10 flex flex-col gap-3"
         >
-          <motion.button
-            whileHover={{ scale: 1.05 }}
-            className="w-full bg-white text-blue-900 py-4 rounded-2xl font-semibold"
-          >
-            Log In
-          </motion.button>
-          <motion.button
-            whileHover={{ scale: 1.05 }}
-            className="w-full border border-white/50 text-white py-4 rounded-2xl font-semibold"
-          >
-            Sign Up
-          </motion.button>
+          <Link to="/login">
+            <motion.button
+              whileHover={{ scale: 1.01 }}
+              className="w-full bg-white text-blue-900 py-4 rounded-2xl font-semibold"
+            >
+              Log In
+            </motion.button>
+          </Link>
+          <Link to="/register ">
+            <motion.button
+              whileHover={{ scale: 1.01 }}
+              className="w-full border border-white/50 text-white py-4 rounded-2xl font-semibold"
+            >
+              Sign Up
+            </motion.button>
+          </Link>
         </motion.div>
       </motion.div>
       <div className="reflect"></div>

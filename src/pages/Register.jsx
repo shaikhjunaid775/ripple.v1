@@ -14,8 +14,7 @@ const Register = () => {
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   const navigate = useNavigate();
 
-  // Function to validate email format
-  const isValidEmail = (email) => /\S+@\S+\.\S+/.test(email);
+  
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -30,10 +29,7 @@ const Register = () => {
       return;
     }
 
-    if (!isValidEmail(email)) {
-      toast.error("Enter a valid email address!");
-      return;
-    }
+    
 
     if (password.length < 6) {
       toast.error("Password must be at least 6 characters!");

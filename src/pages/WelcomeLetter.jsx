@@ -6,6 +6,22 @@ const WelcomeLetter = () => {
   const navigate = useNavigate();
   // Retrieve username and password from localStorage
   const [userData, setUserData] = useState({ username: "", password: "" });
+  const text =
+    "Welcome! Your forex journey starts here. Harness the power of technology and AI to navigate the dynamic markets with confidence. Let’s grow together and achieve your trading goals. Happy trading!";
+  
+  const [displayText, setDisplayText] = useState("");
+  const [index, setIndex] = useState(0);
+
+  useEffect(() => {
+    if (index < text.length) {
+      const timeout = setTimeout(() => {
+        setDisplayText((prev) => prev + text[index]);
+        setIndex(index + 1);
+      }, 40); // Adjust typing speed
+
+      return () => clearTimeout(timeout);
+    }
+  }, [index, text]);
 
   // Retrieve user data from localStorage
   useEffect(() => {
@@ -82,10 +98,7 @@ const WelcomeLetter = () => {
             Hi, {userData.username}
           </p>
           <p className="text-white text-xs leading-tight">
-            Welcome! Your forex journey starts here. Harness the power
-            of technology and AI to navigate the dynamic markets with
-            confidence. Let’s grow together and achieve your trading goals.
-            Happy trading!
+          {displayText}
           </p>
         </motion.div>
 
@@ -94,7 +107,7 @@ const WelcomeLetter = () => {
           initial={{ scale: 0.8, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
           transition={{ duration: 0.6, delay: 0.5 }}
-          className="bg-yellow-50 rounded-xl p-4 border border-gray-400 mb-8"
+          className="bg-blueLight rounded-xl p-3 border border-gray-400 mb-8 glowing-border"
         >
           <p className="text-gray-700 mb-4 font-semibold text-sm">
             {userData.username}, save your login information:

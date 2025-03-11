@@ -50,7 +50,7 @@ const ForgotPassword = () => {
       <div className="main bg-gradient-to-bl from-blueLight from-[-5%] via-blueLight via-[10%]  to-blueDark">
         <div className="min-h-screen overflow-auto bg-gradient-to-bl from-blueLight from-[-5%]  to-blueDark to-[40%] text-white content">
           <div className=" w-full max-w-md mx-auto px-4 py-8 min-h-screen flex flex-col justify-center">
-            <div className="p-4 py-8 border rounded-2xl relative overflow-hidden bg-blue-950/40 backdrop-filter backdrop-blur-lg border-white/10 shadow-xl before:absolute before:inset-0 before:bg-gradient-to-r before:from-transparent before:via-white/10 before:to-transparent before:animate-shimmer">
+            <div className="p-4 py-8 border rounded-2xl relative overflow-hidden bg-blue-950/40 backdrop-filter  border-white/10 shadow-xl before:absolute before:inset-0 before:bg-gradient-to-r before:from-transparent before:via-white/10 before:to-transparent before:animate-shimmer">
               {/* App Header */}
               <div className="flex items-center justify-center mb-8">
                 <div className="flex items-center">
@@ -101,7 +101,7 @@ const ForgotPassword = () => {
                       type="email"
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
-                      className="w-full px-4 py-2 bg-blue-900/40 backdrop-blur-md border border-white/10 rounded-lg focus:outline-none text-white shadow-lg overflow-auto"
+                      className="w-full px-4 py-2 bg-blue-900/40  border border-white/10 rounded-lg focus:outline-none text-white shadow-lg overflow-auto"
                       placeholder="Enter your email"
                       required
                     />
@@ -133,7 +133,7 @@ const ForgotPassword = () => {
                       type="number"
                       value={otp}
                       onChange={(e) => setOtp(e.target.value)}
-                      className="w-full px-4 py-2 bg-blue-900/40 backdrop-blur-md border border-white/10 rounded-lg focus:outline-none text-white shadow-lg overflow-auto"
+                      className="w-full px-4 py-2 bg-blue-900/40  border border-white/10 rounded-lg focus:outline-none text-white shadow-lg overflow-auto"
                       placeholder="Enter OTP"
                       required
                     />
@@ -164,7 +164,7 @@ const ForgotPassword = () => {
                       type="password"
                       value={newPassword}
                       onChange={(e) => setNewPassword(e.target.value)}
-                      className="w-full px-4 py-2 bg-blue-900/40 backdrop-blur-md border border-white/10 rounded-lg focus:outline-none text-white shadow-lg overflow-auto"
+                      className="w-full px-4 py-2 bg-blue-900/40  border border-white/10 rounded-lg focus:outline-none text-white shadow-lg overflow-auto"
                       placeholder="Enter new password"
                       required
                     />

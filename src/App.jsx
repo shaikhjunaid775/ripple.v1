@@ -6,6 +6,7 @@ import Login from "./pages/Login";
 import Register from "./pages/Register";
 import WelcomeLetter from "./pages/WelcomeLetter";
 import ProtectedRoute from "./middleware/ProtectedRoute";
+import ForgotPassword from "./pages/ForgotPassword";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
         <Route path="/" element={<Onboard />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
+        <Route path="/forgotPassword" element={<ForgotPassword />} />
         {/* Protected Route */}
         <Route
           path="/dashboard"

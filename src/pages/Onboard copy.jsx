@@ -2,51 +2,8 @@ import { motion } from "framer-motion";
 import avatar from "../assets/image/avatar.png";
 import "../assets/css/style.css";
 import { Link } from "react-router-dom";
-import Spline from "@splinetool/react-spline";
-import { useRef } from "react";
 
 function Onboard() {
-  const splineRef = useRef();
-
-  function handleLoad(splineApp) {
-    // Store the spline instance
-    splineRef.current = splineApp;
-
-    console.log("Spline loaded:", splineApp);
-
-    // Try to find the camera control methods
-    if (splineApp) {
-      // Examine what methods are available on the splineApp object
-      console.log("Available methods:", Object.getOwnPropertyNames(splineApp));
-
-      // Try to access the runtime object which often has camera controls
-      if (splineApp.runtime) {
-        console.log("Runtime available:", splineApp.runtime);
-
-        // Some versions expose camera through runtime
-        setTimeout(() => {
-          try {
-            // Try different methods that might be available
-            if (typeof splineApp.runtime.zoomOut === "function") {
-              splineApp.runtime.zoomOut();
-              console.log("Used runtime.zoomOut()");
-            } else if (
-              splineApp.runtime.setZoom &&
-              typeof splineApp.runtime.setZoom === "function"
-            ) {
-              splineApp.runtime.setZoom(0.5);
-              console.log("Used runtime.setZoom()");
-            } else {
-              console.log("No standard zoom methods found");
-            }
-          } catch (error) {
-            console.error("Error attempting zoom:", error);
-          }
-        }, 1000); // Slight delay to ensure scene is fully loaded
-      }
-    }
-  }
-
   return (
     <>
       <motion.div
@@ -130,12 +87,53 @@ function Onboard() {
             Achieve your financial goals
           </p>
         </motion.div>
-        <div className=" h-48">
-          <Spline
-            scene="https://prod.spline.design/fJ2ptJKzT-sDkpfO/scene.splinecode"
-            onLoad={handleLoad}
-          />
-        </div>
+        <motion.div
+          initial={{ y: 50, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ duration: 1, delay: 0.5 }}
+          className="animation_main_div relative z-0"
+        >
+          <div className="symbolContainer relative flex items-center justify-center w-20 h-20  rounded-full ">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="h-12 w-12 stroke-[#2673f8]"
+              viewBox="0 0 48 48"
+            >
+              <path
+                fill="none"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="m43.5 14.957l-14.696-4.004c-9.938.518-16.862 2.214-24.304 9.373l15.214 4.852C24 18.913 33.609 14.486 43.5 14.957"
+                strokeWidth={1}
+              ></path>
+              <path
+                fill="none"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M43.5 16.244c-10.472.283-18.558 7.662-23.362 14.868L7.185 26.355c.707-2.677 2.846-4.265 2.846-4.265"
+                strokeWidth={1}
+              ></path>
+              <path
+                fill="none"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M43.123 17.688c-6.547.283-19.688 12.624-22.42 19.36c0 0-6.223-2.88-10.645-4.334c-.016-3.251 1.41-4.786 1.41-4.786"
+                strokeWidth={1}
+              ></path>
+              <ellipse
+                cx={22.87}
+                cy={14.674}
+                fill="none"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                rx={4.899}
+                ry={1.413}
+                strokeWidth={1}
+              ></ellipse>
+            </svg>
+          </div>
+        </motion.div>
+
         {/* Buttons */}
         <motion.div
           initial={{ y: 50, opacity: 0 }}

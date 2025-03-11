@@ -1,9 +1,8 @@
 #root {
   width: 100%;
   max-width: 690px;
-  
+
   margin: 0 auto !important; /* Centers it horizontally */
-  
 }
 
 /* Chrome, Safari, Edge, Opera */
@@ -14,42 +13,41 @@ input::-webkit-inner-spin-button {
 }
 
 /* Firefox */
-input[type=number] {
+input[type="number"] {
   -moz-appearance: textfield;
 }
 
-body{
+body {
   width: 100%;
   margin: 0 auto !important;
-  
-    margin: 0;
-    padding: 0;
-    background-color: #F7F8FF;
-    /* display: -webkit-box; */
+
+  margin: 0;
+  padding: 0;
+  background-color: #f7f8ff;
+  /* display: -webkit-box; */
 }
 
-.banner img{
+.banner img {
   width: 100%;
   height: 10rem;
-  }
+}
 
-  .slick-slider{
-    overflow: hidden;
-  }
+.slick-slider {
+  overflow: hidden;
+}
 
-.tab-container img{
+.tab-container img {
   width: 100%;
 }
 
-.memberslider{
+.memberslider {
   display: flex !important;
 }
 
-#bottom-navigation{
+#bottom-navigation {
   margin: 0 auto !important;
   max-width: 480px;
 }
-
 
 /* Swiper  */
 
@@ -70,43 +68,49 @@ body{
   position: relative;
 }
 
-
 .slider {
-    height: 60px;
-    width: 300px;
-    border-radius: 9999px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  
-    background: rgba(255, 255, 255, 0.075); /* Slight transparency for the glass effect */
-   
-    backdrop-filter: blur(20px); /* Increased blur for stronger glass effect */
-    -webkit-backdrop-filter: blur(20px); /* Webkit compatibility */
-    
-    border: 1px solid rgb(255 255 255 / 56%); /* Light border to enhance glassy look */
-    transition: border-color 0.25s, background 0.25s; /* Smooth transition effects */
-    overflow: hidden; /* Ensures no overflow of elements inside the rounded border */
-  }
-  
- 
-.slider-text {
-    background: linear-gradient(to right, rgb(0 0 0 / 66%) 40%, rgb(255 255 255 / 80%) 50%, rgb(0 0 0 / 72%) 60%);
-    background-clip: text;
-    animation: slidetounlock 4s infinite;
-    animation-delay: 3s;
-    position: absolute;
-    inset: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 15px;
-    font-weight: 600;
-    letter-spacing: -0.5px;
-    font-family: inherit;
-    color: rgb(255 255 255 / 50%);
-    
+  height: 60px;
+  width: 300px;
+  border-radius: 9999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
+  background: rgba(
+    255,
+    255,
+    255,
+    0.075
+  ); /* Slight transparency for the glass effect */
+
+  backdrop-filter: blur(20px); /* Increased blur for stronger glass effect */
+  -webkit-backdrop-filter: blur(20px); /* Webkit compatibility */
+
+  border: 1px solid rgb(255 255 255 / 56%); /* Light border to enhance glassy look */
+  transition: border-color 0.25s, background 0.25s; /* Smooth transition effects */
+  overflow: hidden; /* Ensures no overflow of elements inside the rounded border */
+}
+
+.slider-text {
+  background: linear-gradient(
+    to right,
+    rgb(0 0 0 / 66%) 40%,
+    rgb(255 255 255 / 80%) 50%,
+    rgb(0 0 0 / 72%) 60%
+  );
+  background-clip: text;
+  animation: slidetounlock 4s infinite;
+  animation-delay: 3s;
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: -0.5px;
+  font-family: inherit;
+  color: rgb(255 255 255 / 50%);
 }
 
 .thumb {
@@ -123,4 +127,170 @@ body{
   color: #e87f5e;
   cursor: grab;
   z-index: 1;
+}
+
+/* -------------------------------------------------- */
+
+.box {
+  top: 0;
+  border-radius: 10px;
+  padding: 2px;
+  box-sizing: border-box;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.box:nth-child(1) {
+  left: 0;
+}
+
+.box:nth-child(2) {
+  right: 0;
+}
+
+.innerbox {
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  right: 5px;
+  bottom: 5px;
+  width: auto;
+  height: auto;
+  background: #181d1f;
+  border-radius: 6px;
+  z-index: -2;
+}
+
+.cursor {
+  position: absolute;
+  z-index: -4;
+  pointer-events: none;
+  width: 300px;
+  height: 4px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(255, 255, 255, 0.75) 0%,
+    rgba(255, 255, 255, 0) 70%
+  );
+  transform: translate(-50%, -50%);
+  visibility: hidden;
+}
+
+.box .cursor {
+  visibility: visible;
+  animation: transform 3s linear infinite;
+}
+
+@keyframes transform {
+  0% {
+    top: 0;
+    left: 0;
+  }
+  19.23% {
+    top: 0;
+    left: 100%;
+  }
+  50% {
+    top: 100%;
+    left: 100%;
+  }
+  69.23% {
+    top: 100%;
+    left: 0;
+  }
+  100% {
+    top: 0;
+    left: 0;
+  }
+}
+
+@keyframes floating {
+  0% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(150px, -150px);
+  } /* Moves diagonally */
+  100% {
+    transform: translate(0, 0);
+  }
+}
+
+@keyframes pulseGlow {
+  0% {
+    opacity: 0.5;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.1);
+  }
+  100% {
+    opacity: 0.5;
+    transform: scale(1);
+  }
+}
+@keyframes fade {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+input:-webkit-autofill {
+  background-color: rgba(
+    30,
+    58,
+    138,
+    0.4
+  ) !important; /* Equivalent to bg-blue-900/40 */
+  -webkit-text-fill-color: rgb(255, 255, 255) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1); /* Equivalent to border-white/10 */
+  transition: background-color 5000s ease-in-out 0s;
+}
+
+input:-webkit-autofill:focus {
+  background-color: rgba(
+    59,
+    130,
+    246,
+    0.5
+  ) !important; /* Equivalent to focus:ring-blue-500/70 */
+}
+
+.content {
+  background-color: transparent;
+  background-image: linear-gradient(
+      0deg,
+      transparent 24%,
+      rgba(0, 0, 0, 0.08) 25%,
+      rgba(0, 0, 0, 0.08) 26%,
+      transparent 27%,
+      transparent 74%,
+      rgba(0, 0, 0, 0.08) 75%,
+      rgba(0, 0, 0, 0.08) 76%,
+      transparent 77%,
+      transparent
+    ),
+    linear-gradient(
+      90deg,
+      transparent 24%,
+      rgba(0, 0, 0, 0.08) 25%,
+      rgba(0, 0, 0, 0.08) 26%,
+      transparent 27%,
+      transparent 74%,
+      rgba(0, 0, 0, 0.08) 75%,
+      rgba(0, 0, 0, 0.08) 76%,
+      transparent 77%,
+      transparent
+    );
+  height: 100%;
+  background-size: 50px 50px;
+}
+
+.main {
+  
 }

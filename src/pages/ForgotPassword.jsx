@@ -4,58 +4,43 @@ import { Eye, EyeOff } from "lucide-react";
 import toast, { Toaster } from "react-hot-toast";
 // import Sparkles from "react-sparkle";
 
-const Login = () => {
+const ForgotPassword = () => {
   const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [showPassword, setShowPassword] = useState(false);
-  const [rememberMe, setRememberMe] = useState(false);
-  // const [showSparkles, setShowSparkles] = useState(false);
+  const [otp, setOtp] = useState("");
+  const [newPassword, setNewPassword] = useState("");
+  const [step, setStep] = useState(1);
   const navigate = useNavigate();
+  const hardcodedOTP = "1234";
 
-  useEffect(() => {
-    // Check if user has selected "Remember Me"
-    const rememberedUser = localStorage.getItem("rememberedUser");
-    if (rememberedUser) {
-      const { email, password } = JSON.parse(rememberedUser);
-      setEmail(email);
-      setPassword(password);
-      setRememberMe(true);
-    }
-  }, []);
-
-  const handleSubmit = (e) => {
+  const handleEmailSubmit = (e) => {
     e.preventDefault();
-
-    // Show sparkles
-    // setShowSparkles(true);
-
-    // Hide sparkles after 1 second
-    // setTimeout(() => setShowSparkles(false), 1000);
-
     const storedUser = JSON.parse(localStorage.getItem("user"));
 
-    if (!storedUser) {
-      toast.error("No registered user found. Please sign up first.");
+    if (!storedUser || storedUser.email !== email) {
+      toast.error("No user found with this email.");
       return;
     }
+    toast.success("OTP sent to your email.");
+    setStep(2);
+  };
 
-    if (email === storedUser.email && password === storedUser.password) {
-      toast.success("Login successful!");
-
-      if (rememberMe) {
-        localStorage.setItem(
-          "rememberedUser",
-          JSON.stringify({ email, password })
-        );
-      } else {
-        localStorage.removeItem("rememberedUser");
-      }
-
-      localStorage.setItem("isAuthenticated", "true"); // Set authentication status
-      navigate("/dashboard");
+  const handleOTPVerify = (e) => {
+    e.preventDefault();
+    if (otp === hardcodedOTP) {
+      toast.success("OTP verified. Set your new password.");
+      setStep(3);
     } else {
-      toast.error("Invalid email or password!");
+      toast.error("Invalid OTP. Try again.");
     }
+  };
+
+  const handlePasswordReset = (e) => {
+    e.preventDefault();
+    let storedUser = JSON.parse(localStorage.getItem("user"));
+    storedUser.password = newPassword;
+    localStorage.setItem("user", JSON.stringify(storedUser));
+    toast.success("Password updated successfully!");
+    navigate("/login");
   };
 
   return (
@@ -99,9 +84,11 @@ const Login = () => {
                 </p>
               </div>
 
-              {/* Login Form */}
-              <form onSubmit={handleSubmit} className="space-y-3 relative z-10">
-                <div>
+              {step === 1 && (
+                <form
+                  onSubmit={handleEmailSubmit}
+                  className="space-y-3 relative z-10"
+                >
                   <label
                     htmlFor="email"
                     className="block mb-2 text-sm font-medium text-blue-300"
@@ -121,87 +108,86 @@ const Login = () => {
                     <div class="innerbox bg-blue-900/40"></div>
                     <div class="cursor" id="cursorBoxOne"></div>
                   </div>
-                </div>
-
-                <div className="relative">
-                  <div className="flex items-center justify-between mb-2">
-                    <label
-                      htmlFor="password"
-                      className="block text-sm font-medium text-blue-300"
-                    >
-                      Password
-                    </label>
-                  </div>
+                  <button
+                    type="submit"
+                    className="w-full py-2 bg-white text-blue-900 rounded-lg hover:bg-blue-100"
+                  >
+                    Send OTP
+                  </button>
+                </form>
+              )}
+              {step === 2 && (
+                <form
+                  onSubmit={handleOTPVerify}
+                  className="space-y-3 relative z-10"
+                >
+                  <label
+                    htmlFor="otp"
+                    className="block mb-2 text-sm font-medium text-blue-300"
+                  >
+                    Otp
+                  </label>
                   <div className="relative box">
                     <input
-                      id="password"
-                      type={showPassword ? "text" : "password"}
-                      value={password}
-                      onChange={(e) => setPassword(e.target.value)}
-                      className="w-full px-4 py-2 bg-blue-900/40 backdrop-blur-md border border-white/10 rounded-lg focus:outline-none   text-white shadow-lg"
-                      placeholder="Enter your password"
+                      id="otp"
+                      type="number"
+                      value={otp}
+                      onChange={(e) => setOtp(e.target.value)}
+                      className="w-full px-4 py-2 bg-blue-900/40 backdrop-blur-md border border-white/10 rounded-lg focus:outline-none text-white shadow-lg overflow-auto"
+                      placeholder="Enter OTP"
                       required
                     />
                     <div class="innerbox bg-blue-900/40"></div>
                     <div class="cursor" id="cursorBoxOne"></div>
                   </div>
                   <button
-                    type="button"
-                    className="absolute inset-y-9 right-3 flex items-center text-white h-fit"
-                    onClick={() => setShowPassword(!showPassword)}
+                    type="submit"
+                    className="w-full py-2 bg-white text-blue-900 rounded-lg hover:bg-blue-100"
                   >
-                    {showPassword ? <EyeOff /> : <Eye />}
+                    Verify OTP
                   </button>
-                </div>
-
-                <div className="flex items-center justify-between mt-5">
-                  <div className="flex items-center ">
+                </form>
+              )}
+              {step === 3 && (
+                <form
+                  onSubmit={handlePasswordReset}
+                  className="space-y-3 relative z-10"
+                >
+                  <label
+                    htmlFor="password"
+                    className="block mb-2 text-sm font-medium text-blue-300"
+                  >
+                    Change Password
+                  </label>
+                  <div className="relative box">
                     <input
-                      id="remember-me"
-                      type="checkbox"
-                      checked={rememberMe}
-                      onChange={(e) => setRememberMe(e.target.checked)}
-                      className="w-4 h-4 border-blue-700 rounded text-blue-600 focus:ring-blue-500"
+                      type="password"
+                      value={newPassword}
+                      onChange={(e) => setNewPassword(e.target.value)}
+                      className="w-full px-4 py-2 bg-blue-900/40 backdrop-blur-md border border-white/10 rounded-lg focus:outline-none text-white shadow-lg overflow-auto"
+                      placeholder="Enter new password"
+                      required
                     />
-                    <label
-                      htmlFor="remember-me"
-                      className="block ml-2 text-sm text-blue-300"
-                    >
-                      Remember me
-                    </label>
+                    <div class="innerbox bg-blue-900/40"></div>
+                    <div class="cursor" id="cursorBoxOne"></div>
                   </div>
-                  <Link to="/forgotPassword" className="text-sm text-blue-300 underline">
-                    Forgot Password
-                  </Link>
-                </div>
-
-                <div className="relative">
-                  {/* Sparkles Effect */}
-                  {/* {showSparkles && (
-                    <Sparkles className="absolute inset-0" flicker={false} />
-                  )} */}
 
                   <button
                     type="submit"
-                    className="w-full py-3 font-medium text-blue-900 transition-colors bg-white rounded-lg hover:bg-blue-100 shadow-md"
+                    className="w-full py-2 bg-white text-blue-900 rounded-lg hover:bg-blue-100"
                   >
-                    Log In
+                    Reset Password
                   </button>
-                </div>
-
-                <div className="text-center">
-                  <p className="text-sm text-blue-300">
-                    Don't have an account?{" "}
-                    <Link
-                      to="/register"
-                      className="font-medium text-blue-400 hover:text-blue-300"
-                    >
-                      Sign Up
-                    </Link>
-                  </p>
-                </div>
-              </form>
-
+                </form>
+              )}
+              <div className="flex justify-center w-full mt-3 relative z-10">
+                <Link
+                  to="/login"
+                  className="text-sm text-blue-300 underline"
+                >
+                  Back to Login
+                </Link>
+              </div>
               {/* Additional glass shine effect layers */}
               <div className="absolute top-0 left-0 w-full h-6 bg-gradient-to-b from-white/10 to-transparent animate-[pulseGlow_6s_ease-in-out_infinite]"></div>
               <div className="absolute bottom-0 left-0 w-full h-6 bg-gradient-to-t from-white/5 to-transparent animate-fade"></div>
@@ -217,4 +203,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default ForgotPassword;

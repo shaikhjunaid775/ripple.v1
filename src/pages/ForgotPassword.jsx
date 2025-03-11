@@ -52,7 +52,7 @@ const ForgotPassword = () => {
           <div className=" w-full max-w-md mx-auto px-4 py-8 min-h-screen flex flex-col justify-center">
             <div className="p-4 py-8 border rounded-2xl relative overflow-hidden bg-blue-950/40 backdrop-filter  border-white/10 shadow-xl before:absolute before:inset-0 before:bg-gradient-to-r before:from-transparent before:via-white/10 before:to-transparent before:animate-shimmer">
               {/* App Header */}
-              <div className="flex items-center justify-center mb-8">
+              <div className="flex items-center justify-center mb-5">
                 <div className="flex items-center">
                   <div className="flex items-center justify-center w-10 h-10 bg-blue-600 rounded-full shadow-lg">
                     <svg
@@ -75,7 +75,7 @@ const ForgotPassword = () => {
               </div>
 
               {/* Main Heading */}
-              <div className="mb-8 text-center">
+              <div className="mb-4 text-center">
                 <h1 className="mb-2 text-2xl font-bold text-white">
                   Welcome Back
                 </h1>

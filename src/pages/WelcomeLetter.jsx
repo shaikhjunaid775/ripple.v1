@@ -8,7 +8,7 @@ const WelcomeLetter = () => {
   const [userData, setUserData] = useState({ username: "", password: "" });
   const text =
     "Welcome! Your forex journey starts here. Harness the power of technology and AI to navigate the dynamic markets with confidence. Let’s grow together and achieve your trading goals. Happy trading!";
-  
+
   const [displayText, setDisplayText] = useState("");
   const [index, setIndex] = useState(0);
 
@@ -97,9 +97,7 @@ const WelcomeLetter = () => {
           <p className="text-white mb-1 font-semibold">
             Hi, {userData.username}
           </p>
-          <p className="text-white text-xs leading-tight">
-          {displayText}
-          </p>
+          <p className="text-white text-xs leading-tight">{displayText}</p>
         </motion.div>
 
         {/* Login Information Box */}
@@ -107,20 +105,20 @@ const WelcomeLetter = () => {
           initial={{ scale: 0.8, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
           transition={{ duration: 0.6, delay: 0.5 }}
-          className="bg-blueLight rounded-xl p-3 border border-gray-400 mb-8 glowing-border"
+          className="bg-blueLight/30 rounded-xl p-3 border border-gray-400 mb-8 "
         >
-          <p className="text-gray-700 mb-4 font-semibold text-sm">
+          <p className="text-gray-200 mb-2 font-semibold text-sm">
             {userData.username}, save your login information:
           </p>
 
           <div className="mb-4">
-            <p className="text-gray-600 font-bold mb-1">Username</p>
-            <p className="text-gray-800">{userData.username}</p>
+            <p className="text-gray-200 font-bold">Username</p>
+            <p className="text-gray-300">{userData.username}</p>
           </div>
 
           <div>
-            <p className="text-gray-600 font-bold mb-1">Password</p>
-            <p className="text-gray-800">{userData.password}</p>
+            <p className="text-gray-200 font-bold">Password</p>
+            <p className="text-gray-300">{userData.password}</p>
           </div>
         </motion.div>
 
@@ -145,7 +143,7 @@ const WelcomeLetter = () => {
                   rotate,
                   position: "relative",
                   top: offsetY,
-                  left: offsetX
+                  left: offsetX,
                 }}
               >
                 <motion.path

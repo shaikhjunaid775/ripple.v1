@@ -68,7 +68,7 @@ const Register = () => {
           <div className=" w-full max-w-md mx-auto px-4 py-8 min-h-screen flex flex-col justify-center">
             <div className="p-4 py-8 border rounded-2xl relative overflow-hidden bg-blue-950/40 backdrop-filter  border-white/10 shadow-xl before:absolute before:inset-0 before:bg-gradient-to-r before:from-transparent before:via-white/10 before:to-transparent before:animate-shimmer">
               {/* App Header */}
-              <div className="flex items-center justify-center mb-8">
+              <div className="flex items-center justify-center mb-3">
                 <div className="flex items-center">
                   <div className="flex items-center justify-center w-10 h-10 bg-blue-600 rounded-full">
                     <svg
@@ -91,7 +91,7 @@ const Register = () => {
               </div>
 
               {/* Main Heading */}
-              <div className="mb-8 text-center">
+              <div className="mb-5 text-center">
                 <h1 className="mb-2 text-2xl font-bold text-white">
                   Create Account
                 </h1>
@@ -240,7 +240,7 @@ const Register = () => {
                     Already have an account?{" "}
                     <Link
                       to="/login"
-                      className="font-medium text-blue-400 hover:text-blue-300"
+                      className="font-medium text-blue-400 hover:text-blue-300 underline"
                     >
                       Sign In
                     </Link>

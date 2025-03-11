@@ -47,7 +47,7 @@ const ForgotPassword = () => {
     <>
       {/* Hot Toast Notification */}
       <Toaster position="top-right" reverseOrder={false} />
-      <div className="main bg-gradient-to-bl from-blueLight/80 from-[-5%] via-blueLight/80 via-[10%]  to-blueDark/90">
+      <div className="main bg-gradient-to-bl from-blueLight from-[-5%] via-blueLight via-[10%]  to-blueDark">
         <div className="min-h-screen overflow-auto bg-gradient-to-bl from-blueLight from-[-5%]  to-blueDark to-[40%] text-white content">
           <div className=" w-full max-w-md mx-auto px-4 py-8 min-h-screen flex flex-col justify-center">
             <div className="p-4 py-8 border rounded-2xl relative overflow-hidden bg-blue-950/40 backdrop-filter backdrop-blur-lg border-white/10 shadow-xl before:absolute before:inset-0 before:bg-gradient-to-r before:from-transparent before:via-white/10 before:to-transparent before:animate-shimmer">
